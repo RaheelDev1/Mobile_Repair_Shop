@@ -1,0 +1,17 @@
+{
+    "name": "mobile-repair-shop",
+    "version": "1.0.0",
+    "description": "CRUD-based information system for a mobile repair shop",
+    "main": "backend/server.js",
+    "scripts": {
+      "start": "node backend/server.js",
+      "test": "node tests/crud.test.js"
+    },
+    "author": "Raheel Abbas",
+    "license": "MIT",
+    "dependencies": {
+      "cors": "^2.8.5",
+      "express": "^4.18.2"
+    }
+  }
+  
