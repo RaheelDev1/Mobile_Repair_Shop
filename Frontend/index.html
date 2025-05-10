@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Repair Shop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url("background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(3px);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px;
+      align-items: flex-start;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: white;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    form, .job-section {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    #statusFilter {
+      width: 50%;
+      padding: 8px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: rgba(255,255,255,0.95);
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    li button {
+      width: auto;
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+
+    li button.delete {
+      background: #dc3545;
+    }
+
+    li button.edit {
+      background: #28a745;
+    }
+
+    li button.complete {
+      background: #17a2b8;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mobile Repair Shop System</h1>
+
+  <div class="container">
+    <!-- FORM -->
+    <form id="jobForm">
+      <h2>Job Entry</h2>
+      <input type="text" id="customerName" placeholder="Customer Name" required>
+      <input type="text" id="phoneModel" placeholder="Phone Model" required>
+      <input type="text" id="issue" placeholder="Issue Description" required>
+      <select id="status">
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <button type="submit">Save Job</button>
+    </form>
+
+    <!-- JOB LIST -->
+    <div class="job-section">
+      <h2>All Jobs</h2>
+      <label for="statusFilter">Filter by Status:</label>
+      <select id="statusFilter" onchange="loadJobs()">
+        <option value="All">All</option>
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+      </select>
+
+      <ul id="jobList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
